@@ -19,8 +19,8 @@ Page({
     labelId: '员工号',
     isShowMy: false,
     isShowAll: false,
-    allInventory:'点击查看所有盘点'
-
+    allInventory:'点击查看所有盘点',
+    isShowShare:false
   },
 
   onLoad: function(options) {
@@ -47,7 +47,9 @@ Page({
       })
     }
   },
-
+  onShareAppMessage: function (ops){
+    
+  },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -61,41 +63,61 @@ Page({
     })
   },
   formSubmit: function(e) {
-    const db = wx.cloud.database()
- 
-    db.collection('counters').add({
-      data: {
-        OT: e.detail.value.OT,
-        city: e.detail.value.city,
-        date: e.detail.value.date,
-        staffId: e.detail.value.staffId,
-        OOT: e.detail.value.OOT,
-        sellType: "不限",
-        grade: "不限"
+    var flag = true;
+  
+    if (e.detail.value.OT == "" | e.detail.value.OOT == "" | e.detail.value.date == null | e.detail.value.city == "" | e.detail.value.staffId.length != 6){
+      flag = false
+      wx.showToast({
+        icon: 'none',
+        title: '信息不完整'
+      })
+    }
+    
 
-      },
-      success: res => {
-        // 在返回结果中会包含新创建的记录的 _id
-        this.setData({
-          counterId: res._id,
-          count: 1
-        })
-        wx.showToast({
-          title: '新增记录成功',
-        })
-        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '新增记录失败'
-        })
-        console.error('[数据库] [新增记录] 失败：', err)
-      }
-    })
+    
+    if(flag == true){
+      const db = wx.cloud.database()
+      db.collection('counters').add({
+        data: {
+          OT: e.detail.value.OT,
+          city: e.detail.value.city,
+          date: e.detail.value.date,
+          staffId: e.detail.value.staffId,
+          OOT: e.detail.value.OOT,
+          sellType: "不限",
+          grade: "不限"
+
+        },
+        success: res => {
+          // 在返回结果中会包含新创建的记录的 _id
+          this.setData({
+            counterId: res._id,
+            count: 1,
+            isShowShare: true
+          })
+          wx.showToast({
+            title: '新增记录成功',
+          })
+          console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+          
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '新增记录失败'
+          })
+          console.error('[数据库] [新增记录] 失败：', err)
+        }
+      })
+    }
+ 
   },
 
-
+  onHideShare:function(){
+    this.setData({
+      isShowShare:false
+    })
+  },
 
   onQuery: function() {
     if(this.data.isShowMy==false){

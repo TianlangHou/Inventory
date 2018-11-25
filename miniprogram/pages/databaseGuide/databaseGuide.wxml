@@ -1,6 +1,6 @@
 <!--pages/databaseGuide/databaseGuide.wxml-->
 <view class="page">
-  <view class='"page__bd page__bd_spacing'>
+  <view class='page__bd page__bd_spacing'>
     <!--所有人的记录-->
     <view>
       <view class="weui-btn-area">
@@ -27,9 +27,7 @@
       </view>
 
     </view>
-    <form wx:if="{{!isShowAll}}" bindsubmit="formSubmit" bindreset="formReset">
-
-      <!-- <view class="weui-cells__title">填写信息发布盘点</view> -->
+    <form wx:if="{{!isShowAll}}" bindsubmit="formSubmit" bindreset="formReset">     
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">{{labelDate}}</view>
@@ -76,10 +74,10 @@
         </view>
       </view>
 
-     
-        <button class="weui-btn"  type="primary" formType="submit" open-type='share'>提交</button>
-       
-    
+       <view class="weui-btn-area">     
+        <button class="weui-btn"  wx:if="{{!isShowShare}}" type="primary" formType="submit">提交</button>
+        <button wx:if="{{isShowShare}}" class="weui-btn"  type="default" bindtap="onHideShare" open-type='share'>分享</button>
+      </view>
     </form>
 
 
@@ -113,5 +111,7 @@
 
 
   </view>
-
+  <view class="weui-footer" >
+    Powered by Jack Hou
+  </view>
 </view>
