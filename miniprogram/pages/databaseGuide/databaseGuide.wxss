@@ -1,0 +1,47 @@
+/* pages/databaseGuide/databaseGuide.wxss */
+
+@import "../../style/guide.wxss";
+
+.guide .counter {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+.table{
+  border:1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  margin:10px;
+}
+.tr{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  position:relative;
+}
+.th,.td {
+  padding: 5px 5px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  font-size: 12px;
+  width:25%;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap
+}
+.th {
+  font-weight: 400;
+  background-color: #dadada
+}
+.button-sp-area{
+    margin: 0 auto;
+    
+    width: 50%;
+}
+.mini-btn{
+    margin-right: 10px;
+}

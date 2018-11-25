@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击登录</button>
+    </view>
+  </view>
+
+
+
+
+  <!-- 操作数据库 -->
+  <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+      <text>找盘点</text>
+    </navigator>
+  </view>
+
+
+</view>

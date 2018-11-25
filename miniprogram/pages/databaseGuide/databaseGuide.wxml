@@ -1,0 +1,117 @@
+<!--pages/databaseGuide/databaseGuide.wxml-->
+<view class="page">
+  <view class='"page__bd page__bd_spacing'>
+    <!--所有人的记录-->
+    <view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="default" bindtap="onQueryAll">{{allInventory}}</button>
+      </view>
+      <!-- <button size="mini" type="default" bindtap="onQueryAll">所有盘点</button> -->
+      <view wx:if="{{isShowAll}}" class="table">
+        <view class="tr">
+
+          <view class="th">日期</view>
+          <view class="th">地点</view>
+          <view class="th">OT</view>
+          <view class="th">OOT</view>
+          <view class="th">员工号</view>
+        </view>
+        <view class="tr" wx:for="{{queryAllResult}}" wx:key="{{count.city}}">
+
+          <view class="td">{{item.date}}</view>
+          <view class="td">{{item.city}}</view>
+          <view class="td">{{item.OT}}</view>
+          <view class="td">{{item.OOT}}</view>
+          <view class="td"> {{item.staffId}} </view>
+        </view>
+      </view>
+
+    </view>
+    <form wx:if="{{!isShowAll}}" bindsubmit="formSubmit" bindreset="formReset">
+
+      <!-- <view class="weui-cells__title">填写信息发布盘点</view> -->
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{labelDate}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="date" mode="date" value="{{date}}" start="2018-12-01" end="2019-12-31" bindchange="bindDateChange">
+            <view class="weui-input">{{date}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{labelLocation}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="city" class="weui-input" placeholder="例：换/出/收上海" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{labelOT}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="OT" type="number" class="weui-input" placeholder="几小时OT？" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{labelOOT}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="OOT" type="number" class="weui-input" placeholder="几天OOT？" />
+        </view>
+      </view>
+
+
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{labelId}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="staffId" type="number" class="weui-input" placeholder="例：458123" />
+        </view>
+      </view>
+
+     
+        <button class="weui-btn"  type="primary" formType="submit" open-type='share'>提交</button>
+       
+    
+    </form>
+
+
+    <!--某人的所有记录-->
+    <view class="weui-btn-area">
+      <button type="default" bindtap="onQuery">我发布的盘点</button>
+    </view>
+
+    <scroll-view scroll-x wx:if="{{isShowMy}}" class="table">
+      <view class="tr">
+        <view class="th">操作</view>
+        <scroll-view scroll-x class="th">日期</scroll-view>
+        <view class="th">地点</view>
+        <view class="th">OT</view>
+        <view class="th">OOT</view>
+        <view class="th">员工号</view>
+      </view>
+      <view class="tr" wx:for="{{queryResult}}" wx:key="{{_id}}">
+        <view class="td" bindtap='onRemove' style='color:red'>删除
+          <!-- <button size="mini" class="weui-btn" type="warn" bindtap='onRemove' data-operation="{{item._id}}" >删除</button> -->
+        </view>
+        <view class="td">{{item.date}}</view>
+        <view class="td">{{item.city}}</view>
+        <view class="td">{{item.OT}}</view>
+        <view class="td">{{item.OOT}}</view>
+        <view class="td"> {{item.staffId}} </view>
+      </view>
+    </scroll-view>
+
+
+
+
+  </view>
+
+</view>
