@@ -89,7 +89,7 @@ Page({
           staffId: e.detail.value.staffId,
           OOT: e.detail.value.OOT,
           sellType: e.detail.value.others,
-          grade: "不限"
+          grade: new Date()
 
         },
         success: res => {
