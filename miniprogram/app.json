@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/market/market",
     "pages/databaseGuide/databaseGuide",
     "pages/index/index",
     "pages/userConsole/userConsole"
@@ -12,5 +13,14 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "找盘点",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "list":[{
+      "pagePath":"pages/market/market",
+      "text":"盘点市场"
+    },{
+      "pagePath": "pages/databaseGuide/databaseGuide",
+      "text": "我的盘点"
+    }]
   }
 }

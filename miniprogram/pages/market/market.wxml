@@ -1,0 +1,37 @@
+<!--pages/market/market.wxml-->
+<view class="page">
+  <view class='page__bd page__bd_spacing'>
+    <!--所有人的记录-->
+    <view>
+
+      <view class="table">
+        <view class="tr">
+          <view class="th">日期</view>
+          <view class="th">地点</view>
+          <view class="th">OT</view>
+          <view class="th">OOT</view>
+          <view class="th">员工号</view>
+        </view>
+        <view class="tr" wx:for="{{queryAllResult}}" wx:key="{{count.city}}">
+
+          <view class="td">{{item.date}}</view>
+          <view class="td">{{item.city}}</view>
+          <view class="td">{{item.OT}}</view>
+          <view class="td">{{item.OOT}}</view>
+          <view class="td"> {{item.staffId}} </view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+
+
+
+  </view>
+  <view class="weui-footer">
+    Powered by Jack Hou
+  </view>
+</view>

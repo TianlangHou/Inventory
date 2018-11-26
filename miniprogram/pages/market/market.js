@@ -24,7 +24,7 @@ Page({
   },
 
   onLoad: function(options) {
-   
+
     if (app.globalData.openid) {
       console.log(app.globalData.openid)
       this.setData({
@@ -46,12 +46,11 @@ Page({
         }
       })
     }
+    this.onQueryAll()
+
   },
   onShareAppMessage: function (ops){
-    return {
-      title: '盘点市场',
-      path: 'pages/market/market'
-    }
+    
   },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

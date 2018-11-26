@@ -1,33 +1,10 @@
 <!--pages/databaseGuide/databaseGuide.wxml-->
 <view class="page">
   <view class='page__bd page__bd_spacing'>
-    <!--所有人的记录-->
-    <view>
-      <view class="weui-btn-area">
-        <button class="weui-btn" type="default" bindtap="onQueryAll">{{allInventory}}</button>
-      </view>
-      <!-- <button size="mini" type="default" bindtap="onQueryAll">所有盘点</button> -->
-      <view wx:if="{{isShowAll}}" class="table">
-        <view class="tr">
-
-          <view class="th">日期</view>
-          <view class="th">地点</view>
-          <view class="th">OT</view>
-          <view class="th">OOT</view>
-          <view class="th">员工号</view>
-        </view>
-        <view class="tr" wx:for="{{queryAllResult}}" wx:key="{{count.city}}">
-
-          <view class="td">{{item.date}}</view>
-          <view class="td">{{item.city}}</view>
-          <view class="td">{{item.OT}}</view>
-          <view class="td">{{item.OOT}}</view>
-          <view class="td"> {{item.staffId}} </view>
-        </view>
-      </view>
-
-    </view>
-    <form wx:if="{{!isShowAll}}" bindsubmit="formSubmit" bindreset="formReset">     
+    
+   
+    <form wx:if="{{!isShowAll}}" bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-cells__title">发布盘点</view>     
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">{{labelDate}}</view>
