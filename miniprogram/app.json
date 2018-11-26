@@ -13,6 +13,7 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "找盘点",
     "navigationBarTextStyle": "black"
+    
   },
   "tabBar":{
     "list":[{

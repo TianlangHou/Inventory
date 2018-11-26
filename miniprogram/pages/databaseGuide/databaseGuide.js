@@ -14,13 +14,14 @@ Page({
     region: ['广东省', '广州市', '海珠区'],
     labelLocation: '地点',
     labelDate: '日期',
-    labelOT: 'OT',
+    labelOT: 'Hours',
     labelOOT: 'OOT',
-    labelId: '员工号',
+    labelId: '联系方式',
     isShowMy: false,
     isShowAll: false,
     allInventory:'点击查看所有盘点',
-    isShowShare:false
+    isShowShare:false,
+    labelOthers:'备注'
   },
 
   onLoad: function(options) {
@@ -68,7 +69,7 @@ Page({
   formSubmit: function(e) {
     var flag = true;
   
-    if (e.detail.value.OT == "" | e.detail.value.OOT == "" | e.detail.value.date == null | e.detail.value.city == "" | e.detail.value.staffId.length != 6){
+    if (e.detail.value.OT == "" | e.detail.value.OOT == "" | e.detail.value.date == null | e.detail.value.city == "" | e.detail.value.staffId == ""){
       flag = false
       wx.showToast({
         icon: 'none',
@@ -87,7 +88,7 @@ Page({
           date: e.detail.value.date,
           staffId: e.detail.value.staffId,
           OOT: e.detail.value.OOT,
-          sellType: "不限",
+          sellType: e.detail.value.others,
           grade: "不限"
 
         },

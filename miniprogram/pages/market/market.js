@@ -22,6 +22,9 @@ Page({
     allInventory:'点击查看所有盘点',
     isShowShare:false
   },
+  onShow: function(){
+    this.onQueryAll()
+  },
 
   onLoad: function(options) {
 
