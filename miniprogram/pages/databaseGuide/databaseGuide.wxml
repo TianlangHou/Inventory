@@ -82,7 +82,7 @@
         <view class="th">联系方式</view>
       </view>
       <view class="tr" wx:for="{{queryResult}}" wx:key="{{_id}}">
-        <view class="td" bindtap='onRemove' style='color:red'>删除
+        <view class="td" bindtap='onRemove' data-operation="{{item._id}}" style='color:red'>删除
           <!-- <button size="mini" class="weui-btn" type="warn" bindtap='onRemove' data-operation="{{item._id}}" >删除</button> -->
         </view>
         <view class="td">{{item.date}}</view>

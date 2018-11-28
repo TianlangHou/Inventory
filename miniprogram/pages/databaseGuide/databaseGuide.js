@@ -199,9 +199,7 @@ Page({
           wx.showToast({
             title: '删除成功',
           })
-          this.setData({
-            isShowMy: false
-          })
+
               
         },
         fail: err => {
@@ -217,6 +215,7 @@ Page({
         title: '无记录可删，请见创建一个记录',
       })
     }
+    this.onQuery()
   },
 
 

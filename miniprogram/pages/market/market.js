@@ -49,7 +49,7 @@ Page({
         }
       })
     }
-    this.onQueryAll()
+    // this.onQueryAll()
 
   },
   onShareAppMessage: function(ops) {
@@ -76,7 +76,7 @@ Page({
       success: res => {
         console.log('[云函数] [readAll] 调用成功' + res.result.data.length)
         this.setData({
-          queryAllResult: res.result.data
+          queryAllResult: res.result.data.reverse()
         })
       },
       fail: err => {
