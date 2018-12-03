@@ -26,7 +26,7 @@
 
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd" >
-      <image style='padding:0;margin:0' src='cloud://product-77dda4.7072-product-77dda4/banner2.jpg'mode='widthFix' ></image>
+      <image style='padding:0;margin:0' src='cloud://product-77dda4.7072-product-77dda4/banner3.jpg'mode='widthFix' ></image>
       </view>
 
       <view class="weui-panel__bd">
@@ -34,6 +34,8 @@
           <view class="weui-media-box__title weui-media-box__title_in-text">{{item.city}}</view>
           <view class="weui-media-box__desc">
             <text space="ensp">盘点时间：{{item.date}}  联系方式：{{item.staffId}} \n</text>
+          </view>
+          <view class="weui-media-box__desc">  
             <text space="ensp">Chargeable hours：{{item.OT}}   OOT：{{item.OOT}} \n</text>
             
           </view>
