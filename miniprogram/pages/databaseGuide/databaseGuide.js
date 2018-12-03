@@ -194,7 +194,7 @@ Page({
     
     if (e.target.dataset.operation!=null) {
       const db = wx.cloud.database()
-      db.collection(DB).doc(e.target.dataset.operation).remove({
+      db.collection('counters').doc(e.target.dataset.operation).remove({
         success: res => {
           wx.showToast({
             title: '删除成功',

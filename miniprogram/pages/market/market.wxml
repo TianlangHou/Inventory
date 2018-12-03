@@ -35,6 +35,8 @@
           <view class="weui-media-box__desc">
             <text space="ensp">盘点时间：{{item.date}}  联系方式：{{item.staffId}} \n</text>
           </view>
+          
+
           <view class="weui-media-box__desc">  
             <text space="ensp">Chargeable hours：{{item.OT}}   OOT：{{item.OOT}} \n</text>
             

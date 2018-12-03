@@ -59,9 +59,12 @@
           <input name="others" class="weui-input" placeholder="选填" />
         </view>
       </view>
-
+      <view class="weui-footer">
+        <text>提交后会出现分享按钮哦~</text>
+      </view>
       <view class="weui-btn-area">
         <button class="weui-btn" wx:if="{{!isShowShare}}" type="primary" formType="submit">提交</button>
+        
         <button wx:if="{{isShowShare}}" class="weui-btn" type="default" bindtap="onHideShare" open-type='share'>分享</button>
       </view>
     </form>
