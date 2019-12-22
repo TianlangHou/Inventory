@@ -8,7 +8,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"appid": "wx2c0da00270f6487a",
+	"appid": "YOUR APPID",
 	"projectname": "mini-program",
 	"libVersion": "2.2.5",
 	"condition": {
